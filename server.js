@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 5500;
 
 app.listen(port, () => {
   console.log(`Chat app listening at http://localhost:${port}`);
@@ -31,6 +31,9 @@ const Message = sequelize.define('message', {
 Message.sync({ force: true }).then(() => {
   console.log('Message table created successfully.');
 });
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
 
 app.post('/message', (req, res) => {
     Message.create({ text: req.body.text }).then((message) => {

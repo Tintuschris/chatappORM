@@ -4,7 +4,7 @@ const messagesList = document.querySelector('#messages');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-
+ 
   const message = input.value;
   input.value = '';
 
